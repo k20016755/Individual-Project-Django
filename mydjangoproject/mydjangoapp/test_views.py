@@ -13,16 +13,16 @@ class TESTVIEWS(TestCase):
             description="Description 1",
             completed=False,
             created=timezone.now(),
-            updated_at=timezone.now(),
-            due=datetime.date.today()
+            updated_at=timezone.now()
+            
         )
         self.task2 = Task.objects.create(
             title="Task 2",
             description="Description 2",
             completed=True,
             created=timezone.now(),
-            updated_at=timezone.now(),
-            due=datetime.date.today()
+            updated_at=timezone.now()
+            
         )
     @pytest.mark.django_db
     def test_task_list_view(self):
