@@ -15,9 +15,10 @@ Including another URLconf
 """
 
 from django import views
-from django.urls import path
+from django.urls import path,include
 from mydjangoapp.views import task_list
 
 urlpatterns = [
+    path('mydjangoapp/', include('mydjangoproject.mydjangoapp.urls', namespace='mydjangoapp')),
     path('tasks/',task_list, name='task_list'),
 ]
