@@ -26,7 +26,7 @@ class TESTVIEWS(TestCase):
         )
     @pytest.mark.django_db
     def test_task_list_view(self):
-        response = self.client.get(reverse('mydjangoapp:task_list'))
+        response = self.client.get(reverse('task_list'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, self.task1.title)
         self.assertContains(response, self.task2.title)
