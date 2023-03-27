@@ -1,16 +1,18 @@
 import pytest
 from django.urls import reverse
-from django.test import TestCase,RequestFactory
+from django.test import TestCase,Client
 from mydjangoapp.views import task_list
+from django.contrib.auth.models import User
 import datetime
 from datetime import date
 from django.utils import timezone
 from mydjangoapp.models import Task
 class TESTVIEWS(TestCase):
     def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username='testuser', password='testpass')
         self.task1 = Task.objects.create(
-            self.client = Client()
-            self.user = User.objects.create_user(username='testuser', password='testpass')
+            
             title="Task 1",
             description="Description 1",
             completed=False,
@@ -18,9 +20,10 @@ class TESTVIEWS(TestCase):
             updated_at=timezone.now(),
             
         )
+        self.client = Client()
+        self.user = User.objects.create_user(username='testuser', password='testpass')
         self.task2 = Task.objects.create(
-            self.client = Client()
-            self.user = User.objects.create_user(username='testuser', password='testpass')
+            
 
             title="Task 2",
             description="Description 2",
