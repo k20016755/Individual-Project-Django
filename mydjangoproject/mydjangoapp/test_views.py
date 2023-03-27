@@ -12,7 +12,7 @@ class TESTVIEWS(TestCase):
             title="Task 1",
             description="Description 1",
             completed=False,
-            created=timezone.now(),
+            created_at=timezone.now(),
             updated_at=timezone.now(),
             
         )
@@ -20,7 +20,7 @@ class TESTVIEWS(TestCase):
             title="Task 2",
             description="Description 2",
             completed=True,
-            created=timezone.now(),
+            created_at=timezone.now(),
             updated_at=timezone.now(),
             
         )
