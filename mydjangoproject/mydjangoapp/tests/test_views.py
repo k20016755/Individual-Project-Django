@@ -7,6 +7,8 @@ import datetime
 from datetime import date
 from django.utils import timezone
 from mydjangoapp.models import Task
+import random
+from django.db.utils import IntegrityError
 class TESTVIEWS(TestCase):
     def setUp(self):
         self.client = Client()
@@ -42,7 +44,7 @@ class TESTVIEWS(TestCase):
     def test_task_list_view(self):     
         try:
             user = User.objects.create_user(username='testuser', password='testpass')
-        except django.db.utils.IntegrityError:
+        except IntegrityError:
         # The username already exists, so generate a new unique username
         # You can use any method to generate a unique username
             username = 'testuser' + str(random.randint(1000, 9999))
