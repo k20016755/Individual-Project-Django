@@ -19,6 +19,6 @@ from django.urls import path,include
 from mydjangoapp.views import task_list
 
 urlpatterns = [
-    path('mydjangoapp/', include('mydjangoproject.mydjangoapp.urls', namespace='mydjangoapp')),
+    #path('mydjangoapp/', include('mydjangoproject.mydjangoapp.urls', namespace='mydjangoapp')),
     path('tasks/',task_list, name='task_list'),
 ]

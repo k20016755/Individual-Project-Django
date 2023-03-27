@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from mydjangoapp.models import Task
+from .models import Task
 
 def task_list(request):
     tasks = Task.objects.all()
