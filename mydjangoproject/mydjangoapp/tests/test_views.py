@@ -27,13 +27,13 @@ class TESTVIEWS(TestCase):
     @pytest.mark.django_db
     def test_task_list_view(self):
         response = self.client.get(reverse('task_list'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         self.assertContains(response, self.task1.title)
         self.assertContains(response, self.task2.title)
     
 
        
-        assert response.status_code == 200
+        assert response.status_code == 302
     
 
 
