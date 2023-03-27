@@ -10,8 +10,10 @@ from mydjangoapp.models import Task
 class TESTVIEWS(TestCase):
     def setUp(self):
         self.client = Client()
-        username1 = 'testuser_' + timezone.now().strftime('%Y%m%d%H%M%S')
-        self.user = User.objects.create_user(username=username1, password='testpass')
+        try:
+            self.user = User.objects.get(username='testuser')
+        except User.DoesNotExist:
+            self.user = User.objects.create_user(username='testuser', password='testpass')
         self.task1 = Task.objects.create(
             
             title="Task 1",
@@ -22,8 +24,10 @@ class TESTVIEWS(TestCase):
             
         )
         self.client = Client()
-        username2 = 'testuser_' + timezone.now().strftime('%Y%m%d%H%M%S')
-        self.user = User.objects.create_user(username=username2, password='testpass')
+        try:
+            self.user = User.objects.get(username='testuser')
+        except User.DoesNotExist:
+            self.user = User.objects.create_user(username='testuser', password='testpass')
         self.task2 = Task.objects.create(
             
 
