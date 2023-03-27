@@ -9,6 +9,8 @@ from mydjangoapp.models import Task
 class TESTVIEWS(TestCase):
     def setUp(self):
         self.task1 = Task.objects.create(
+            self.client = Client()
+            self.user = User.objects.create_user(username='testuser', password='testpass')
             title="Task 1",
             description="Description 1",
             completed=False,
@@ -17,6 +19,9 @@ class TESTVIEWS(TestCase):
             
         )
         self.task2 = Task.objects.create(
+            self.client = Client()
+            self.user = User.objects.create_user(username='testuser', password='testpass')
+
             title="Task 2",
             description="Description 2",
             completed=True,
@@ -26,14 +31,15 @@ class TESTVIEWS(TestCase):
         )
     @pytest.mark.django_db
     def test_task_list_view(self):
+        self.client.login(username='testuser', password='testpass')
         response = self.client.get(reverse('task_list'))
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
         self.assertContains(response, self.task1.title)
         self.assertContains(response, self.task2.title)
     
 
        
-        assert response.status_code == 302
+        assert response.status_code == 200
     
 
 
