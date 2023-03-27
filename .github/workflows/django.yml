@@ -27,4 +27,5 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-        python manage.py test
+        python mydjangoproject/manage.py test mydjangoapp
+        pytest mydjangoproject/mydjangoapp
