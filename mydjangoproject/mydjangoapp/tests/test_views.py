@@ -40,11 +40,11 @@ class TESTVIEWS(TestCase):
         )
     @pytest.mark.django_db
     def test_task_list_view(self):     
-        try:
-            self.client.login(username='testuser', password='testpass')
-        except:
-            self.user = User.objects.create_user(username='testuser', password='testpass')
-        self.client.force_login(self.user)
+        #try:
+         #   self.client.login(username='testuser', password='testpass')
+        #except:
+        user = User.objects.create_user(username='testuser', password='testpass')
+        self.client.force_login(user)
         response = self.client.get(reverse('task_list'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, self.task1.title)
