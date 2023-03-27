@@ -13,7 +13,7 @@ class TESTVIEWS(TestCase):
             description="Description 1",
             completed=False,
             created=timezone.now(),
-            updated_at=timezone.now()
+            updated_at=timezone.now(),
             
         )
         self.task2 = Task.objects.create(
@@ -21,7 +21,7 @@ class TESTVIEWS(TestCase):
             description="Description 2",
             completed=True,
             created=timezone.now(),
-            updated_at=timezone.now()
+            updated_at=timezone.now(),
             
         )
     @pytest.mark.django_db
