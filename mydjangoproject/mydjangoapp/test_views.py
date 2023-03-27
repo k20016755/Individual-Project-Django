@@ -30,7 +30,6 @@ class TESTVIEWS(TestCase):
     
 
        
-
         assert response.status_code == 200
     
 
