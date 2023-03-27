@@ -28,4 +28,4 @@ jobs:
     - name: Run Tests
       run: |
         
-        python mydjangoproject/manage.py test
+        pytest mydjangoproject/mydjangoapp/tests 
