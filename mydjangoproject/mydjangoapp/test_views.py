@@ -10,11 +10,10 @@ class TESTVIEWS(TestCase):
         request = factory.get(reverse('task_list'))
         response = task_list(request)
         self.assertContains(response,'<h1>Task List<h1>')
-<<<<<<< HEAD
         self.assertTemplateUsed('mydjangoapp/task_list.html')
-=======
+
        
->>>>>>> ad829fbbcd4068c30e880b3af6418f7eed7e3a01
+
         assert response.status_code == 200
     
 
