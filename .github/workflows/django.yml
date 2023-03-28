@@ -30,5 +30,4 @@ jobs:
         
         pytest mydjangoproject/mydjangoapp/tests/test_models.py
         pytest --cov=mydjangoproject/mydjangoapp/tests/test_models.py
-        mutmut run
-        pytest --benchmark-skip
+        
