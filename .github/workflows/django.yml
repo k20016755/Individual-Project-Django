@@ -1,5 +1,6 @@
 name: Django CI
-
+env:
+    DJANGO_SETTINGS_MODULE: mydjangoproject.settings
 on:
   push:
     branches: [ "main" ]
@@ -25,6 +26,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        python mydjangoproject/manage.py migrate
     - name: Run Pytest
       run: |
         
