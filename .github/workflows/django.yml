@@ -25,10 +25,14 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Run Tests
+    - name: Run Pytest
       run: |
         
         pytest mydjangoproject/mydjangoapp/tests/test_models.py
-        mutmut run
-        pytest --benchmark-skip
+    - name: Run Mutations
+      run: |
+        mutmut run --paths-to-mutate=mydjangoproject/mydjangoapp/tests/test_models.py --test-dir=mydjangoproject/mydjangoapp/tests/test_models.py
+    - name: Run Performance Eval
+      run: |
+        pytest --benchmark-skip mydjangoproject/mydjangoapp/tests/test_models.py
         
