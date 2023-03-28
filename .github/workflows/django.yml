@@ -1,5 +1,6 @@
 name: Django CI
 env:
+    PYTHONPATH: $PYTHONPATH:mydjangoproject
     DJANGO_SETTINGS_MODULE: mydjangoproject.settings
 on:
   push:
