@@ -42,13 +42,13 @@ class TESTVIEWS(TestCase):
         )
     @pytest.mark.django_db
     def test_task_list_view(self):     
-        try:
-            user = User.objects.create_user(username='testuser', password='testpass')
-        except IntegrityError:
+        
+        user = User.objects.create_user(username='testuser123', password='testpass123')
+        #except IntegrityError:
         # The username already exists, so generate a new unique username
         # You can use any method to generate a unique username
-            username = 'testuser' + str(random.randint(1000, 9999))
-            user = User.objects.create_user(username=username, password='testpass')
+         #   username = 'testuser' + str(random.randint(1000, 9999))
+          #  user = User.objects.create_user(username=username, password='testpass')
         self.client.force_login(user)
         response = self.client.get(reverse('task_list'))
         self.assertEqual(response.status_code, 200)
