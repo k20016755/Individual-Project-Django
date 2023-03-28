@@ -38,4 +38,7 @@ jobs:
     - name: Run Performance Eval
       run: |
         pytest --benchmark-skip mydjangoproject/mydjangoapp/tests/test_models.py
+    - name: Run Tests with Code Coverage
+      run: |
+        pytest --cov=mydjangoproject/mydjangoapp mydjangoproject/mydjangoapp/tests/test_models.py
         
