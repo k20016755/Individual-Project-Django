@@ -29,3 +29,4 @@ jobs:
       run: |
         
         pytest mydjangoproject/mydjangoapp/tests/test_models.py
+        pytest-cov mydjangoproject/mydjangoapp/tests/test_models.py
