@@ -31,7 +31,7 @@ jobs:
         pytest mydjangoproject/mydjangoapp/tests/test_models.py
     - name: Run Mutations
       run: |
-        mutmut run --paths-to-mutate=mydjangoproject/mydjangoapp/tests/test_models.py --tests-dir=mydjangoproject/mydjangoapp/tests/test_models.py
+        mutmut run --paths-to-mutate=mydjangoproject/mydjangoapp/tests/test_models.py  --tests-dir=mydjangoproject/mydjangoapp/tests/test_models.py
     - name: Run Performance Eval
       run: |
         pytest --benchmark-skip mydjangoproject/mydjangoapp/tests/test_models.py
