@@ -1,5 +1,7 @@
 name: Django CI
-
+env:
+    PYTHONPATH: $PYTHONPATH:mydjangoproject
+    DJANGO_SETTINGS_MODULE: mydjangoproject.settings
 on:
   push:
     branches: [ "main" ]
@@ -25,7 +27,15 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Run Tests
+        python mydjangoproject/manage.py migrate
+    - name: Run Pytest
       run: |
         
-        pytest mydjangoproject/mydjangoapp/tests 
+        pytest mydjangoproject/mydjangoapp/tests/test_models.py
+    - name: Run Mutations
+      run: |
+        mutmut run --paths-to-mutate=mydjangoproject/mydjangoapp/tests/test_models.py  --tests-dir=mydjangoproject/mydjangoapp/tests/test_models.py
+    - name: Run Performance Eval
+      run: |
+        pytest --benchmark-skip mydjangoproject/mydjangoapp/tests/test_models.py
+        
